@@ -36,6 +36,8 @@ public class pointerevents : MonoBehaviour
     public void OnMouseClick()
     {
         Instantiate(prefab);
+
+        
        
     }
 }
