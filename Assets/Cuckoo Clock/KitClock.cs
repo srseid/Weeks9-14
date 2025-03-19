@@ -12,12 +12,16 @@ public class KitClock : MonoBehaviour
 
     public float t;
     public int hour = 0;
+    public int minute = 0;
 
     public UnityEvent<int> OnTheHour;
 
     Coroutine clockIsRunning;
     IEnumerator doingOneHourOfMovement;
 
+   
+    public UnityEvent<int> MinuteAfterHour;
+    IEnumerator noBird;
     void Start()
     {
         clockIsRunning = StartCoroutine(MoveTheClock());
@@ -32,6 +36,8 @@ public class KitClock : MonoBehaviour
             doingOneHourOfMovement = MoveTheClockHandsOneHour();
             yield return StartCoroutine(doingOneHourOfMovement);
         }
+
+      
     }
     void Update()
     {
@@ -67,17 +73,34 @@ public class KitClock : MonoBehaviour
             hour = 1;
         }
         OnTheHour.Invoke(hour);
+        
         //while statements = keep doing this when that happens
         // (360/Time.deltaTime is the speed the hands go
         // -(360/Time.deltaTime makes it go clockwise
-
+       
 
     }
 
+    IEnumerator DisappearBird()
+    {
+        if (hour == hour++)
+        {
+            MinuteAfterHour.Invoke(minute);
+            yield return null;
+        }
+    }
 
     public void StopTheClock()
     {
         StopCoroutine(clockIsRunning);
         StopCoroutine(doingOneHourOfMovement);
     }
+
+
+    public void DontShowBird()
+    {
+        MinuteAfterHour.Invoke(minute);
+    }
+
+   
 }

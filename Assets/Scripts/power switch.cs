@@ -9,6 +9,9 @@ public class powerswitch : MonoBehaviour
 
     public SpriteRenderer Lighton;
     public SpriteRenderer Lightoff;
+
+    public SpriteRenderer Lightswitchon;
+    public SpriteRenderer Lightswitchoff;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,13 @@ public class powerswitch : MonoBehaviour
         {
             //OnPowerSwitch.Invoke();
             Lighton.enabled = !Lighton.enabled;
-            OnPowerSwitch.Invoke();
+            //OnPowerSwitch.Invoke();
 
+         
+                Lightswitchon.enabled = !Lightswitchon.enabled;
+                Lightswitchoff.enabled = !Lightswitchoff.enabled;
+            
+            
         }
 
         
