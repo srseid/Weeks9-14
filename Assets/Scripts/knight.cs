@@ -10,6 +10,16 @@ public class knight : MonoBehaviour
     public AudioClip ac;
     public float speed = 2;
     public bool canRun = true;
+
+
+    
+    //public AnimationCurve ani;
+    //public float t;
+    //public Transform knightPos;
+    //public Transform squarePos;
+
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
