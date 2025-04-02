@@ -22,13 +22,16 @@ public class knight : MonoBehaviour
     {
         float direction = Input.GetAxis("Horizontal");
 
+        Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+       
+
         sr.flipX = (direction < 0);
         //flip sr when using left arrow
         animator.SetFloat("movement", Mathf.Abs(direction));
         //call movement in animator
         //switch to run animation when direction is not 0
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             animator.SetTrigger("attack");
             //when left mouse clicked set trigger for attack in animator
@@ -38,7 +41,13 @@ public class knight : MonoBehaviour
 
         if (canRun == true)
         {
-            transform.position += transform.right * direction * speed * Time.deltaTime;
+            if (Input.GetMouseButtonDown(0))
+            {
+                transform.position = mouse;
+            }
+            //transform.position += transform.right * direction * speed * Time.deltaTime;
+            transform.Translate(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, 0, 0);
+            transform.Translate(0, Input.GetAxisRaw("Vertical") * speed * Time.deltaTime, 0);
             //move player
         }
     }
