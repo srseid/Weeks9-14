@@ -6,8 +6,7 @@ using UnityEngine.Events;
 
 public class knifemove : MonoBehaviour
 {
-    public Transform rotate;
-    //rotate centre of rotation
+    
     public Transform leftRest;
     //left restriction for knife
     public Transform rightRest;
@@ -72,7 +71,7 @@ public class knifemove : MonoBehaviour
         if (p < speed)
         {
             p += Time.deltaTime;
-            rotate.Rotate(0, 0, -(50 / speed) * Time.deltaTime);
+            transform.Rotate(0, 0, -(50 / speed) * Time.deltaTime);
            // rotate.Rotate = Vector2.Lerp(leftRest.position, rightRest.position, ani.Evaluate(p));
             yield return null;
 
@@ -90,7 +89,7 @@ public class knifemove : MonoBehaviour
     {
         while (p < speed) { 
             p += Time.deltaTime;
-            rotate.Rotate(0, 0, (50 / speed) * Time.deltaTime);
+            transform.Rotate(0, 0, (50 / speed) * Time.deltaTime);
             yield return null;
             //move counter clockwise
         }
