@@ -10,7 +10,7 @@ public class playermovement : MonoBehaviour
     //access animator 
     SpriteRenderer spri;
     // access player sprite renderer
-    public float speed = 4;
+    public float speed = 2;
     //speed of jump
     public bool Jump = true;
     //if player is able to jump
@@ -56,7 +56,10 @@ public class playermovement : MonoBehaviour
         {
            if (Input.GetKeyDown(KeyCode.Space))
             {
-                transform.position += transform.up * upward * speed * Time.deltaTime;
+                ani.SetTrigger("jump");
+                Jump = true;
+                attack = false;
+                //transform.position += transform.up * upward * speed * Time.deltaTime;
                 //transform.position = Vector2.Lerp(bottom.position, top.position, curve.Evaluate(j));
                 Debug.Log("pressed space");
             }
