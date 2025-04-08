@@ -14,6 +14,7 @@ public class playermovement : MonoBehaviour
     //speed of jump
     public bool Jump = true;
     //if player is able to jump
+    public bool attack = false;
 
     public float j;
     public AnimationCurve curve;
@@ -45,6 +46,7 @@ public class playermovement : MonoBehaviour
             ani.SetTrigger("attack");
             //when left mouse is clicked, set trigger to do attack animation
             Jump = false;
+            attack = true;
             //cannot jump while attacking
         }
 
@@ -52,10 +54,10 @@ public class playermovement : MonoBehaviour
        
         if(Jump == true)
         {
-           //if (Input.GetKeyDown(KeyCode.Space))
+           if (Input.GetKeyDown(KeyCode.Space))
             {
                 transform.position += transform.up * upward * speed * Time.deltaTime;
-                transform.position = Vector2.Lerp(bottom.position, top.position, curve.Evaluate(j));
+                //transform.position = Vector2.Lerp(bottom.position, top.position, curve.Evaluate(j));
                 Debug.Log("pressed space");
             }
             
