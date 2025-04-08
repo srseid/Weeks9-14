@@ -6,9 +6,7 @@ using UnityEngine.Events;
 
 public class knifemove : MonoBehaviour
 {
-    
-   
-
+ 
     float knifeMoveLeft;
 
     Coroutine knifeSwinging;

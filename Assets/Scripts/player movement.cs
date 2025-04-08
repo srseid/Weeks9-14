@@ -45,6 +45,8 @@ public class playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemymovement myScript = GetComponent<enemymovement>();
+        //myScript.enattack = enatt;
 
         //float upward = Input.GetAxis("Vertical");
         //go vertical
@@ -70,6 +72,7 @@ public class playermovement : MonoBehaviour
             
             
             audiosource.PlayOneShot(clip);
+            attack = 0;
             // play sound when player kills enemy
         }
 
@@ -92,10 +95,13 @@ public class playermovement : MonoBehaviour
 
     public void GotHurt()
     {
-        ani.SetTrigger("hurt");
-        //got hurt
-        Jump = false;
-        //don't jump while hurt
+        //if (enatt++)
+        {
+            ani.SetTrigger("hurt");
+            //got hurt
+            Jump = false;
+            //don't jump while hurt
+        }
     }
 
    
