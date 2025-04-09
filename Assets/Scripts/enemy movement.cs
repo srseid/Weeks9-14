@@ -9,9 +9,12 @@ public class enemymovement : MonoBehaviour
     //access animator 
     SpriteRenderer enspri;
     // access player sprite renderer
-    public UnityEvent<int> Stop;
-    public int enattack = 0;
-    public GameObject kill;
+  
+    public playermovement plyr;
+
+    public playermovement criticalHit;
+
+    public playermovement norm;
 
     // Start is called before the first frame update
     void Start()
@@ -20,33 +23,33 @@ public class enemymovement : MonoBehaviour
         //access animator
         enspri = GetComponent<SpriteRenderer>();
         //access player sprite renderer
+
+        criticalHit.EndScreen.AddListener(die);
+        //play death animation when end screen pops up
+
+        plyr.Hit.AddListener(hurt);
+        //show enemy was hit
+
+        norm.Normal.AddListener(fine);
     }
 
-    // Update is called once per frame
-    void Update()
+   
+    private void hurt(int attack)
     {
-        GameObject smth = Instantiate(kill);
-        playermovement myScript = GetComponent<playermovement>();
-        //myScript.attack = att;
-        //myScript.playermovement = KillStreak();
+        enani.SetTrigger("enemy hurt");
+        //show hurt animation
+        Debug.Log("ouch!");
+    }
 
-        if(Time.deltaTime == 5)
-        {
-            enani.SetTrigger("enemy attack");
-            enattack++;
-        }
+    private void die(int attack)
+    {
+        enani.SetBool("dead", true);
+        //show death 
+    }
 
-        //if (att++)
-        {
-            enani.SetTrigger("enemy hurt");
-            Stop.Invoke(enattack);
-        }
-
-        if(enattack == 10)
-        {
-            //KillStreak.Invoke(enattack);
-        }
-
-        
+    private void fine(int attack)
+    {
+        enani.SetBool("dead", false);
+        //don't do death animation when reset
     }
 }

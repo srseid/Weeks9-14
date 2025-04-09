@@ -6,12 +6,9 @@ using UnityEngine.Events;
 
 public class knifemove : MonoBehaviour
 {
- 
     float knifeMoveLeft;
-
     Coroutine knifeSwinging;
     IEnumerator swing;
-   
     //swing
     public float speed = 0.5f;
     //speed of knife
@@ -20,6 +17,7 @@ public class knifemove : MonoBehaviour
 
     public bool movement = true;
 
+ 
     void Start()
     {
         knifeSwinging = StartCoroutine(MoveKnife());
@@ -34,7 +32,6 @@ public class knifemove : MonoBehaviour
         } 
        
     }
-
 
     IEnumerator MoveLeft()
     {
@@ -60,4 +57,8 @@ public class knifemove : MonoBehaviour
         StopCoroutine(swing);
     }
    
+    public void StartKnifeMovement()
+    {
+        StartCoroutine(MoveKnife());
+    }
 }
