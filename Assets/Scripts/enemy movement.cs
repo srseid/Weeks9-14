@@ -16,6 +16,11 @@ public class enemymovement : MonoBehaviour
 
     public playermovement norm;
 
+    public AudioSource aus;
+    public AudioClip crit;
+
+    public bool scratch = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,26 +35,37 @@ public class enemymovement : MonoBehaviour
         plyr.Hit.AddListener(hurt);
         //show enemy was hit
 
-        norm.Normal.AddListener(fine);
+        if (scratch==false)
+        {
+            plyr.Hit.AddListener(fine);
+
+            Debug.Log("hi");
+        }
     }
 
+    
+       
+    
    
     private void hurt(int attack)
     {
+        
         enani.SetTrigger("enemy hurt");
         //show hurt animation
         Debug.Log("ouch!");
+        scratch = true;
     }
 
     private void die(int attack)
     {
         enani.SetBool("dead", true);
         //show death 
+        scratch = false;
     }
 
     private void fine(int attack)
     {
-        enani.SetBool("dead", false);
-        //don't do death animation when reset
+        aus.PlayOneShot(crit);
+        
     }
 }

@@ -56,19 +56,20 @@ public class playermovement : MonoBehaviour
             attack++;
             //add to streak
             Hit.Invoke(attack);
-            Debug.Log("Your damaging the enemy!");
+            Debug.Log("Damage Dealt!");
         }
 
         if (attack == 4)
         {
-            Debug.Log("Kill Streak!");
+            Normal.Invoke(attack);
+            Debug.Log("Attack Streak!");
             //kill streak is working
             killstreakwords.enabled = true;
         }
 
         if (attack == 8)
         {
-            Debug.Log("You defeated the enemy!");
+            Debug.Log("Enemy Defeated!");
             EndScreen.Invoke(attack);
             attack = 0;
         }
@@ -78,7 +79,7 @@ public class playermovement : MonoBehaviour
             killstreakwords.enabled = false;
         }
 
-        //if (attack == 0)
+        if (attack == 0)
         {
             //Normal.Invoke(attack);
         }
