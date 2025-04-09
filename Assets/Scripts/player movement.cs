@@ -21,7 +21,6 @@ public class playermovement : MonoBehaviour
     public int attack = 0;
     //if attack add to streak
 
-    public UnityEvent<int> Normal;
     public UnityEvent<int> Hit;
     //hit/attack events
     public UnityEvent<int> KillStreak;
@@ -29,11 +28,8 @@ public class playermovement : MonoBehaviour
     public UnityEvent<int> EndScreen;
     //end screen
 
-    public AudioSource audiosource;
-    public AudioClip clip;
-    //use sound
-
     public TextMeshProUGUI killstreakwords;
+    //show streak wording as pop up
    
 
     // Start is called before the first frame update
@@ -60,8 +56,7 @@ public class playermovement : MonoBehaviour
         }
 
         if (attack == 4)
-        {
-            Normal.Invoke(attack);
+        { 
             Debug.Log("Attack Streak!");
             //kill streak is working
             killstreakwords.enabled = true;
@@ -71,17 +66,15 @@ public class playermovement : MonoBehaviour
         {
             Debug.Log("Enemy Defeated!");
             EndScreen.Invoke(attack);
+            //show that the player won
             attack = 0;
+            //reset
         }
 
         if (attack > 4)
         {
             killstreakwords.enabled = false;
-        }
-
-        if (attack == 0)
-        {
-            //Normal.Invoke(attack);
+            //make words disappear after attacking again
         }
     }
 

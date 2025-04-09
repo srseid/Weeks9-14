@@ -12,10 +12,6 @@ public class enemymovement : MonoBehaviour
   
     public playermovement plyr;
 
-    public playermovement criticalHit;
-
-    public playermovement norm;
-
     public AudioSource aus;
     public AudioClip crit;
 
@@ -29,7 +25,7 @@ public class enemymovement : MonoBehaviour
         enspri = GetComponent<SpriteRenderer>();
         //access player sprite renderer
 
-        criticalHit.EndScreen.AddListener(die);
+        plyr.EndScreen.AddListener(die);
         //play death animation when end screen pops up
 
         plyr.Hit.AddListener(hurt);
@@ -38,15 +34,12 @@ public class enemymovement : MonoBehaviour
         if (scratch==false)
         {
             plyr.Hit.AddListener(fine);
+            //add sound when hitting enemy
 
             Debug.Log("hi");
         }
     }
 
-    
-       
-    
-   
     private void hurt(int attack)
     {
         
@@ -66,6 +59,7 @@ public class enemymovement : MonoBehaviour
     private void fine(int attack)
     {
         aus.PlayOneShot(crit);
+        //play sound once
         
     }
 }

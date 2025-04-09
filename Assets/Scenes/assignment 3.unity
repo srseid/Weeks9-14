@@ -990,9 +990,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   attack: 0
-  Normal:
-    m_PersistentCalls:
-      m_Calls: []
   Hit:
     m_PersistentCalls:
       m_Calls: []
@@ -1038,8 +1035,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  audiosource: {fileID: 218992259}
-  clip: {fileID: 8300000, guid: 989a98f10f6bb774e8bd44283ba14238, type: 3}
   killstreakwords: {fileID: 712940261}
 --- !u!1 &576548855
 GameObject:
@@ -1182,7 +1177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4X COMBO!!
+  m_text: ATTACK STREAK!!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -1286,7 +1281,7 @@ RectTransform:
   m_GameObject: {fileID: 739911630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.420708, y: 2.2921412, z: 1.8839}
+  m_LocalScale: {x: 2.1892166, y: 0.6968693, z: 0.6423381}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 200767053}
@@ -1294,7 +1289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000030518, y: -132}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &739911632
@@ -1838,7 +1833,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1383770772}
   - component: {fileID: 1383770773}
-  - component: {fileID: 1383770774}
   m_Layer: 0
   m_Name: knife
   m_TagString: knife
@@ -1915,51 +1909,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1383770774
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383770771}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.010652974, y: 0.8309293}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.56, y: 3.36}
-    newSize: {x: 1.56, y: 3.36}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.70776474, y: 1.6981411}
-  m_EdgeRadius: 0
 --- !u!1 &1411462167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,8 +1988,8 @@ Transform:
   m_GameObject: {fileID: 1411462167}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.44023556, w: 0.89788234}
-  m_LocalPosition: {x: 0.90836, y: 5.2, z: 0}
-  m_LocalScale: {x: 8.504164, y: 7.3947415, z: 8.451133}
+  m_LocalPosition: {x: -0.5, y: 6.01, z: 0}
+  m_LocalScale: {x: 15.570273, y: 13.539032, z: 15.473179}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1383770772}
@@ -2399,7 +2348,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 80
   m_Sprite: {fileID: 21300000, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
-  m_Color: {r: 1, g: 0.38679236, b: 0.38679236, a: 1}
+  m_Color: {r: 0.38823533, g: 1, b: 0.7637072, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -2437,8 +2386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plyr: {fileID: 517149149}
-  criticalHit: {fileID: 517149149}
-  norm: {fileID: 517149149}
   aus: {fileID: 218992259}
   crit: {fileID: 8300000, guid: 989a98f10f6bb774e8bd44283ba14238, type: 3}
   scratch: 0
